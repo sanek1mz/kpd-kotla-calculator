@@ -195,6 +195,16 @@ class KpdApp(ttk.Frame):
                   font=("", 9, "italic")).grid(row=4, column=0, columnspan=2, sticky="w", pady=(6, 0))
         self.q3 = self._labeled_entry(box, 5, "q3 хим.недожог, %", 0.0)
         self.q5_nom = self._labeled_entry(box, 6, "q5 при номин.нагрузке, %", 1.0)
+        ttk.Button(box, text="Подсказать по D ном. (рис.5)",
+                   command=self._suggest_q5).grid(row=6, column=2, sticky="w", padx=(8, 0))
+
+    def _suggest_q5(self):
+        d_nom = self._f(self.D_nom)
+        if d_nom <= 0:
+            messagebox.showinfo("Нет данных", "Сначала укажите D номинальная в разделе «Режим котла».")
+            return
+        val = core.q5_reference_percent(d_nom)
+        self.q5_nom.set(f"{val:.2f}")
 
     def _build_buttons(self, parent):
         box = ttk.Frame(parent)
