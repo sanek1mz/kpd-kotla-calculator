@@ -75,6 +75,9 @@ pyinstaller --onefile --windowed --name KPD_Kotla kpd_gui.py
 
 ## Источники и авторство
 
+Идея замены устаревшей DOS-программы (Kpd3t2.exe, запуск через DOSBox) на
+современный формат — **Мороз А.С.**
+
 Код написан с помощью [Claude Code](https://claude.com/claude-code) (Anthropic).
 
 Формулы теплового баланса и табличные данные топлив (состав рабочей массы, низшая
